@@ -1,51 +1,41 @@
+import { memo } from "react";
 import TodoItem from './TodoItem'
 
-const TodoList = () => {
-  const hasTasks = true
+const TodoList = (props) => {
+  const {
+    tasks = [],
+    filteredTasks,
+    onDeleteTaskButtonClick,
+    onTaskCompleteChange,
+    firstIncompleteTaskId,
+    firstIncompleteTaskRef,
+  } = props
+
+  const hasTasks = tasks.length > 0
+  const isEmptyFilteredTasks = filteredTasks?.length === 0
 
   if (!hasTasks) {
-    return <div className="todo__empty-message"></div>
+    return <div className="todo__empty-message">There are no tasks yet</div>
+  }
+
+  if (hasTasks && isEmptyFilteredTasks) {
+    return <div className="todo__empty-message">Tasks not found</div>
   }
 
   return (
     <ul className="todo__list">
-      <TodoItem />
-      <li className="todo__item todo-item">
-        <input
-          className="todo-item__checkbox"
-          id="task-2"
-          type="checkbox"
+      {(filteredTasks ?? tasks).map((task) => (
+        <TodoItem
+          className="todo__item"
+          key={task.id}
+          ref={task.id === firstIncompleteTaskId ? firstIncompleteTaskRef : null}
+          onDeleteTaskButtonClick={onDeleteTaskButtonClick}
+          onTaskCompleteChange={onTaskCompleteChange}
+          {...task}
         />
-        <label
-          className="todo-item__label"
-          htmlFor="task-2"
-        >
-          Task 2
-        </label>
-        <button
-          className="todo-item__delete-button"
-          aria-label="Delete"
-          title="Delete"
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M15 5L5 15M5 5L15 15"
-              stroke="#757575"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
-      </li>
+      ))}
     </ul>
   )
 }
 
-export default TodoList
+export default memo(TodoList)
