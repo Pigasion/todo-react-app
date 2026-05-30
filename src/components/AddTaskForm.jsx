@@ -1,24 +1,19 @@
-import Field from './Field'
-import Button from './Button'
+import Field from "./Field";
+import Button from "./Button";
+import { useContext } from "react";
+import { TasksContext } from "../context/TasksContext";
 
-const AddTaskForm = (props) => {
-  const {
-    addTask,
-    newTaskTitle,
-    setNewTaskTitle,
-    newTaskInputRef,
-  } = props
+const AddTaskForm = () => {
+  const { addTask, newTaskTitle, setNewTaskTitle, newTaskInputRef } =
+    useContext(TasksContext);
 
   const onSubmit = (event) => {
-    event.preventDefault()
-    addTask()
-  }
+    event.preventDefault();
+    addTask();
+  };
 
   return (
-    <form
-      className="todo__form"
-      onSubmit={onSubmit}
-    >
+    <form className="todo__form" onSubmit={onSubmit}>
       <Field
         className="todo__field"
         id="new-task"
@@ -29,7 +24,7 @@ const AddTaskForm = (props) => {
       />
       <Button type="submit">Add</Button>
     </form>
-  )
-}
+  );
+};
 
-export default AddTaskForm
+export default AddTaskForm;

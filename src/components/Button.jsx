@@ -1,22 +1,13 @@
 const Button = (props) => {
-  const {
-    className = '',
-    type = 'button',
-    children,
-    onClick,
-  } = props
+  const { className = "", type = "button", children, onClick } = props;
   return (
-    <button
-      className={`button ${className}`}
-      type={type}
-      onClick={onClick}
-    >
+    <button className={`button ${className}`} type={type} onClick={onClick}>
       {children}
     </button>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;
 //ctrl+f/r
 //ctrl+shift+f/r
 //ctrl+shift+n
