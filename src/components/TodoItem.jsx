@@ -1,15 +1,15 @@
-import { memo, useContext } from "react";
-import { TasksContext } from "../context/TasksContext";
+import { memo, useContext } from 'react'
+import { TasksContext } from '../context/TasksContext'
 
 const TodoItem = (props) => {
-  const { className = "", id, title, isDone } = props;
+  const { className = '', id, title, isDone } = props
 
   const {
     deleteTask,
     toggleTaskComplete,
     firstIncompleteTaskRef,
     firstIncompleteTaskId,
-  } = useContext(TasksContext);
+  } = useContext(TasksContext)
 
   return (
     <li
@@ -22,7 +22,7 @@ const TodoItem = (props) => {
         type="checkbox"
         checked={isDone}
         onChange={({ target }) => {
-          toggleTaskComplete(id, target.checked);
+          toggleTaskComplete(id, target.checked)
         }}
       />
       <label className="todo-item__label" htmlFor={id}>
@@ -51,7 +51,7 @@ const TodoItem = (props) => {
         </svg>
       </button>
     </li>
-  );
-};
+  )
+}
 
-export default memo(TodoItem);
+export default memo(TodoItem)

@@ -1,16 +1,16 @@
-import Field from "./Field";
-import Button from "./Button";
-import { useContext } from "react";
-import { TasksContext } from "../context/TasksContext";
+import Field from './Field'
+import Button from './Button'
+import { useContext } from 'react'
+import { TasksContext } from '../context/TasksContext'
 
 const AddTaskForm = () => {
   const { addTask, newTaskTitle, setNewTaskTitle, newTaskInputRef } =
-    useContext(TasksContext);
+    useContext(TasksContext)
 
   const onSubmit = (event) => {
-    event.preventDefault();
-    addTask();
-  };
+    event.preventDefault()
+    addTask()
+  }
 
   return (
     <form className="todo__form" onSubmit={onSubmit}>
@@ -24,7 +24,7 @@ const AddTaskForm = () => {
       />
       <Button type="submit">Add</Button>
     </form>
-  );
-};
+  )
+}
 
-export default AddTaskForm;
+export default AddTaskForm

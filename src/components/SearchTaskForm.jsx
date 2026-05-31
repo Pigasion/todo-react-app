@@ -1,9 +1,9 @@
-import Field from "./Field";
-import { useContext } from "react";
-import { TasksContext } from "../context/TasksContext";
+import Field from './Field'
+import { useContext } from 'react'
+import { TasksContext } from '../context/TasksContext'
 
 const SearchTaskForm = () => {
-  const { searchQuery, setSearchQuery } = useContext(TasksContext);
+  const { searchQuery, setSearchQuery } = useContext(TasksContext)
   return (
     <form className="todo__form" onSubmit={(event) => event.preventDefault()}>
       <Field
@@ -15,7 +15,7 @@ const SearchTaskForm = () => {
         onInput={(event) => setSearchQuery(event.target.value)}
       />
     </form>
-  );
-};
+  )
+}
 
-export default SearchTaskForm;
+export default SearchTaskForm
