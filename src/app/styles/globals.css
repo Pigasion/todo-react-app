@@ -20,7 +20,11 @@ button {
   transition-duration: 0s !important;
 }
 
-a, a:visited {
+a {
   text-decoration: none;
   color: var(--color-black);
+}
+
+mark {
+  background-color: var(--color-gray-3);
 }
