@@ -13,8 +13,6 @@ export const TasksProvider = (props) => {
     deleteTask,
     deleteAllTasks,
     toggleTaskComplete,
-    newTaskTitle,
-    setNewTaskTitle,
     searchQuery,
     setSearchQuery,
     newTaskInputRef,
@@ -35,8 +33,6 @@ export const TasksProvider = (props) => {
       deleteTask,
       deleteAllTasks,
       toggleTaskComplete,
-      newTaskTitle,
-      setNewTaskTitle,
       searchQuery,
       setSearchQuery,
       newTaskInputRef,
@@ -51,8 +47,6 @@ export const TasksProvider = (props) => {
       deleteTask,
       deleteAllTasks,
       toggleTaskComplete,
-      newTaskTitle,
-      setNewTaskTitle,
       searchQuery,
       setSearchQuery,
       newTaskInputRef,
@@ -69,3 +63,4 @@ export const TasksProvider = (props) => {
     </TasksContext.Provider>
   )
 }
+//попробовать докрутить оптимизацию через разделени одного большого контекста на маленькие
