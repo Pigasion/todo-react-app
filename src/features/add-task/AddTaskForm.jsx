@@ -19,10 +19,7 @@ const AddTaskForm = (props) => {
     event.preventDefault()
 
     if (!isNewTaskTitleEmpty) {
-      addTask(
-        clearNewTaskTitle,
-        () => setNewTaskTitle('')
-      )
+      addTask(clearNewTaskTitle, () => setNewTaskTitle(''))
     }
   }
 
